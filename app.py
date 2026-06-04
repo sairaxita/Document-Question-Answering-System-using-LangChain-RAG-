@@ -113,7 +113,12 @@ def get_user_input(user_question,model_name,api_key,pdf_docs,conversation_histor
         document_chain = get_conv_chain(api_key)
         retrieval_chain = create_retrieval_chain(retriever,document_chain)
 
-        response = retrieval_chain.invoke({"input": user_question})
+        try:
+            response = retrieval_chain.invoke({"input": user_question})
+        except Exception as e:
+            st.error(f"Error: {str(e)}")
+            print("FULL ERROR:", e)
+            raise
         user_question_output=user_question
         response_output = response["answer"]
         pdf_names=[pdf.name for pdf in pdf_docs] if pdf_docs else []
