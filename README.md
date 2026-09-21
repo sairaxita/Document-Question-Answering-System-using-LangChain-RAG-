@@ -10,6 +10,8 @@ A Retrieval-Augmented Generation (RAG) application that enables users to upload 
 * Context-aware responses using RAG
 * Interactive Streamlit interface
 
+[Open the deployed application](https://doc-ques-ans-system.streamlit.app/)
+
 ## Tech Stack
 
 * Python
